@@ -1,0 +1,44 @@
+/* The objective of this exercise is to perform an SQL query in order to find the most 
+* recent retail price corresponding to each offer in the "Offer" table.
+*/
+
+/* For a better understanding of the problem:
+* The retail prices (studied in the previous exercise) of each reference are contained 
+* in the "Reference_price" table below. While the main table "Offer" contains watch 
+* offers retrieved from a website such as ebay.com. 
+*/
+
+
+------------------------------
+
+/* First, requesting columns with the max of the dates
+* Second, linking both RefPriceTable and OfferTable with the 'Reference_code'
+* Third, grouping by 'Reference_code' and 'Retail_currency'
+* Fourth, creating a view of this table, called 'myView'
+* Fifth, selecting only columns that matter 
+*/
+
+CREATE VIEW myView
+AS
+SELECT o.Offer_uid
+	,r.Reference_code
+	,o.Price
+	,r.Retail_price
+	,r.Retail_Currency AS Currency
+	,r.Brand_name
+	,MAX(r.DATE) AS maxDate
+FROM RefPriceTable r
+	,OfferTable o
+WHERE o.Reference_code = r.Reference_code
+GROUP BY r.Reference_code
+	,r.Retail_currency
+ORDER BY Offer_uid ASC
+
+
+SELECT Offer_uid
+	,Reference_code
+	,Price
+	,Retail_price
+	,Currency
+	,Brand_name
+FROM myView

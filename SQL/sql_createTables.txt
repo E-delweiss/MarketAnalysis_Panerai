@@ -1,0 +1,56 @@
+/* SQL requests for creating the three tables */
+
+
+CREATE TABLE OfferTable(
+   Offer_uid      INTEGER  NOT NULL PRIMARY KEY 
+  ,Reference_code VARCHAR NOT NULL
+  ,Price          INTEGER  NOT NULL
+  ,Currency       VARCHAR NOT NULL
+  ,Brand_uid      INTEGER  NOT NULL
+);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (355,'PAM02973',10250,'USD',3);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (356,'PAM04456',46000,'USD',3);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (357,'PAM03201',101500,'CNY',3);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (358,'PAM00014',17250000,'KRW',3);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (359,'PAM02973',10000,'EUR',3);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (360,'126217',55000,'EUR',2);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (361,'MOA12567',990,'EUR',1);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (362,'MOA10034',1250,'USD',1);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (363,'M25407N-0001',550000,'CNY',4);
+INSERT INTO OfferTable(Offer_uid,Reference_code,Price,Currency,Brand_uid) VALUES (364,'26397BC.OO.D324VE.01',88800,'USD',5);
+
+
+
+CREATE TABLE BrandTable(
+   Brand_uid  INTEGER  NOT NULL PRIMARY KEY 
+  ,Brand_name VARCHAR NOT NULL
+);
+INSERT INTO BrandTable(Brand_uid,Brand_name) VALUES (1,'Baume & Mercier');
+INSERT INTO BrandTable(Brand_uid,Brand_name) VALUES (2,'Rolex');
+INSERT INTO BrandTable(Brand_uid,Brand_name) VALUES (3,'Panerai');
+INSERT INTO BrandTable(Brand_uid,Brand_name) VALUES (4,'Tudor');
+INSERT INTO BrandTable(Brand_uid,Brand_name) VALUES (5,'Audemars Piguet');
+
+
+CREATE TABLE RefPriceTable(
+   Uid             INTEGER  NOT NULL PRIMARY KEY 
+  ,Reference_code  VARCHAR NOT NULL
+  ,Retail_price    INTEGER  NOT NULL
+  ,Retail_Currency VARCHAR NOT NULL
+  ,Brand_name      VARCHAR NOT NULL
+  ,Date            DATE  NOT NULL
+);
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (126,'PAM02973',11000,'USD','Panerai','2021-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (127,'PAM02973',10050,'EUR','Panerai','2021-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (128,'PAM02973',10150,'EUR','Panerai','2022-06-30');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (129,'PAM02973',13250000,'KRW','Panerai','2022-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (130,'PAM02973',12000,'USD','Panerai','2022-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (144,'PAM04456',55000,'CNY','Panerai','2021-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (145,'PAM04456',52000,'EUR','Panerai','2022-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (146,'PAM04456',57000,'CNY','Panerai','2022-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (147,'PAM04456',43500,'USD','Panerai','2021-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (148,'PAM04456',45000,'USD','Panerai','2022-10-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (876,'M25407N-0001',95000,'USD','Tudor','2021-08-30');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (877,'M25407N-0001',99000,'USD','Tudor','2022-01-31');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (878,'M25407N-0001',700000,'CNY','Tudor','2021-08-30');
+INSERT INTO RefPriceTable(Uid,Reference_code,Retail_price,Retail_Currency,Brand_name,Date) VALUES (879,'M25407N-0001',720000,'CNY','Tudor','2022-01-31');
